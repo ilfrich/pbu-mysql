@@ -291,19 +291,6 @@ class AbstractMysqlStore(ABC):
         localized = get_localzone().localize(dt)
         return datetime.strftime(localized, AbstractMysqlStore.DATETIME_FORMAT)
 
-    @staticmethod
-    def list_to_json(object_list):
-        """
-        Converts a list of model objects into a list of dictionaries representing the data contained in those model
-        objects.
-        :param object_list: a list of model objects
-        :return: a list of dictionaries
-        """
-        result = []
-        for item in object_list:
-            result.append(item.to_json())
-        return result
-
 
 class AbstractMysqlDocument(JsonDocument):
     @staticmethod
